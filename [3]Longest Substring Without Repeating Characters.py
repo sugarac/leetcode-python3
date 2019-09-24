@@ -37,5 +37,19 @@
 #leetcode submit region begin(Prohibit modification and deletion)
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        
+        res = 0  # can't be initialized to -sys.maxsize since corner case: empty string
+        d = {}
+        r = 0
+        for l in range(len(s)):
+            while r < len(s) and (not s[r] in d.keys() or d[s[r]] < 1):
+                d[s[r]] = 1
+                r += 1
+
+            res = max(res, r - l)
+            d[s[l]] = 0
+
+        return res        
 #leetcode submit region end(Prohibit modification and deletion)
+
+s = Solution()
+print(s.lengthOfLongestSubstring("ddabca"))
