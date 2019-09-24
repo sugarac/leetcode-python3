@@ -22,5 +22,29 @@ class ListNode:
 
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+        dummy = ListNode(0)
+        cur, carry = dummy, 0
+
+        while l1 or l2:
+            if l1:
+                carry += l1.val
+                l1 = l1.next
+            if l2:
+                carry += l2.val
+                l2 = l2.next
+            # 1st way
+            cur.next = ListNode(carry % 10)
+            carry //= 10  # Truncation Division (also known as floor division)
+            cur = cur.next  # important
+
+            # 2nd way
+            # carry, val = divmod(carry, 10)
+            # cur.next = ListNode(val)
+            # cur = cur.next
+
+        if carry == 1:
+            cur.next = ListNode(1)
+
+        return dummy.next
         
 #leetcode submit region end(Prohibit modification and deletion)
