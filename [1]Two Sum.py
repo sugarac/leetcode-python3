@@ -21,5 +21,9 @@ from typing import List
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
 
+<<<<<<< HEAD
+
+=======
         
+>>>>>>> ae4cb59... init
 #leetcode submit region end(Prohibit modification and deletion)
