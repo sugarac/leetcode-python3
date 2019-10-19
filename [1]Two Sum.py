@@ -53,4 +53,5 @@ class Solution:
 
 s = Solution()
 print(s.twoSum([2, 7, 11, 15], 9))
+print(s.twoSum2([2, 7, 11, 15], 9))
 print(s.twoSum3([2, 7, 11, 15], 9))
